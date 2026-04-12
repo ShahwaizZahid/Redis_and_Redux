@@ -1,4 +1,4 @@
-import express from "express";
+import * as express from 'express';
 import { signup } from "./controller";
 
 const userRoute = express.Router();

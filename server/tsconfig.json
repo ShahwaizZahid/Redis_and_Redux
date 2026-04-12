@@ -1,16 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "esModuleInterop": true,
+    "target": "ES2020", // Modern JS target
+    "module": "commonjs", // Node.js standard module system
+    "moduleResolution": "node", // Standard Node module resolution
+    "outDir": "./dist", // Compiled JS output
+    "rootDir": "./src", // Source TS files
+    "esModuleInterop": true, // Allows default imports
+    "allowSyntheticDefaultImports": true, // Support default import style
     "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "strict": true, // Strict type checking
+    "skipLibCheck": true, // Skip type checks in node_modules
+    "resolveJsonModule": true
+    // Remove "types" so TS automatically finds installed @types packages
   },
-  "include": ["src/**/*"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
