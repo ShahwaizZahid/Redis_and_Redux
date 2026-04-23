@@ -3,9 +3,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import { errorHandler } from "./middlewares/errorHandler.js";
-import authRoutes from "./api/server.js";
+import apiRoutes from "./api/server";
 import { ApiError } from "./utils/ApiError.js";
 import { connectDB } from "./configurations/db.js";
+import { connectRedis } from "./configurations/redis";
 
 dotenv.config();
 
@@ -13,14 +14,14 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 connectDB()
-
+connectRedis();
 // Middlewares
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use("/api/auth", authRoutes);
+app.use("/api/v1", apiRoutes);
 
 // Health check
 app.get("/health", (req, res) => {

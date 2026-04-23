@@ -6,7 +6,7 @@ import { logger } from '../utils/logger';
 
 export const connectDB = () => {
     const mongoUrl = process.env.MONGO_URL;
-
+    console.log(mongoUrl)
     if (!mongoUrl) {
         logger.error("MONGO_URL is not defined in environment variables");
         throw new Error("MONGO_URL is required to connect to MongoDB");
