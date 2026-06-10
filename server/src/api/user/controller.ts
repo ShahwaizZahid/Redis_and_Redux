@@ -30,7 +30,7 @@ export const signupUser = async (req: Request, res: Response) => {
     );
 
     // TODO: Send OTP Email here
-
+    console.log(otp);
     res.status(200).json({
       message: "OTP sent to email",
       otp: otp
